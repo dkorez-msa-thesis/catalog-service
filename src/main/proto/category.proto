@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dev.dkorez.msathesis.catalog.grpc";
+
+package catalog;
+
+service CategoryServiceGrpc {
+  rpc ListCategories (CategoryListGrpcRequest) returns (CategoryListGrpcResponse) {}
+  rpc GetCategory (CategoryGrpcRequest) returns (CategoryGrpcResponse) {}
+}
+
+message CategoryListGrpcRequest {
+  string q = 1;
+}
+
+message CategoryListGrpcResponse {
+  repeated CategoryGrpcResponse categories = 1;
+}
+
+message CategoryGrpcRequest {
+  int64 id = 1;
+}
+
+message CategoryGrpcResponse {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+}
