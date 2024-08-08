@@ -64,7 +64,7 @@ public class ProductResponseMapper {
 
     public static ProductGrpcResponse toGrpcResponse(ProductDao dao) {
         List<SpecsGrpc> specs = dao.getSpecification() != null ?
-                dao.getSpecification().stream().map(SpecsResponseMapper::toGrpResponse).toList() :
+                dao.getSpecification().stream().map(SpecsResponseMapper::toGrpcResponse).toList() :
                 Collections.emptyList();
         List<String> tags = dao.getTags() != null ?
                 dao.getTags().stream().map(ProductResponseMapper::getTagName).toList() :

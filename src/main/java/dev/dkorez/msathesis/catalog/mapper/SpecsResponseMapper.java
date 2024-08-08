@@ -28,7 +28,7 @@ public class SpecsResponseMapper {
         return response;
     }
 
-    public static SpecsGrpc toGrpResponse(SpecificationDao dao) {
+    public static SpecsGrpc toGrpcResponse(SpecificationDao dao) {
         if (dao == null)
             return null;
 
