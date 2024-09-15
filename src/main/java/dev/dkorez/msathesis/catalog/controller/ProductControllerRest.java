@@ -14,8 +14,12 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProductControllerRest {
+    private final ProductServiceRest productService;
+
     @Inject
-    private ProductServiceRest productService;
+    public ProductControllerRest(ProductServiceRest productService) {
+        this.productService = productService;
+    }
 
     @GET
     @Path("products")

@@ -10,8 +10,12 @@ import java.util.List;
 
 @ApplicationScoped
 public class ProductServiceGrpc {
+    private final ProductRepository productRepository;
+
     @Inject
-    private ProductRepository productRepository;
+    public ProductServiceGrpc(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<ProductGrpcResponse> getProducts() {
         return productRepository.listAll().stream()

@@ -10,8 +10,12 @@ import java.util.List;
 
 @ApplicationScoped
 public class ProductServiceRest {
+    private final ProductRepository productRepository;
+
     @Inject
-    private ProductRepository productRepository;
+    public ProductServiceRest(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<ProductRestResponse> getProducts() {
         return productRepository.listAll().stream()

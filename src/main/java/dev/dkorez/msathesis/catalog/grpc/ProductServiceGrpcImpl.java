@@ -10,8 +10,12 @@ import java.util.List;
 
 @GrpcService
 public class ProductServiceGrpcImpl implements ProductServiceGrpc {
+    private final dev.dkorez.msathesis.catalog.service.ProductServiceGrpc productService;
+
     @Inject
-    private dev.dkorez.msathesis.catalog.service.ProductServiceGrpc productService;
+    public ProductServiceGrpcImpl(dev.dkorez.msathesis.catalog.service.ProductServiceGrpc productService) {
+        this.productService = productService;
+    }
 
     @Override
     @Blocking
